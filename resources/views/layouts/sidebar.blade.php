@@ -42,17 +42,26 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/sign-in.html">
+                <a class="nav-link text-dark" href="{{ route('admin.login') }}">
                     <i class="material-symbols-rounded opacity-5">login</i>
                     <span class="nav-link-text ms-1">Sign In</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="../pages/sign-up.html">
+                <a class="nav-link text-dark" href="{{ route('admin.register') }}">
                     <i class="material-symbols-rounded opacity-5">assignment</i>
                     <span class="nav-link-text ms-1">Sign Up</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+            @csrf
+            </form>
+            <a class="nav-link text-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+             <i class="material-symbols-rounded opacity-5">logout</i>
+                <span class="nav-link-text ms-1">Logout</span>
+             </a>
+             </li>
         </ul>
     </div>
 </aside>

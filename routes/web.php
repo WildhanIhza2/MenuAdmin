@@ -6,6 +6,11 @@ use App\Http\Controllers\AdminAuthController;
 // ==========================
 // ADMIN AUTH ROUTES
 // ==========================
+// Redirect halaman awal ke halaman login admin
+Route::get('/', function () {
+    return redirect()->route('admin.login');
+});
+
 
 // Halaman form register admin
 Route::get('/admin/register', [AdminAuthController::class, 'showRegister'])->name('admin.register');
@@ -18,6 +23,9 @@ Route::get('/admin/login', [AdminAuthController::class, 'showLogin'])->name('adm
 
 // Proses login admin
 Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
+
+Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+
 
 // ==========================
 // ADMIN PROTECTED ROUTES
